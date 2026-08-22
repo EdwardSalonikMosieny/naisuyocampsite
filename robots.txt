@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naisuyocampsite.co.ke/sitemap.xml
