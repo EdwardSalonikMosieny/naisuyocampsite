@@ -353,6 +353,18 @@ main { display: block; }
   .band { grid-template-columns: 1.1fr 0.9fr; }
   .band--reverse { grid-template-columns: 0.9fr 1.1fr; }
   .band--reverse .band__media { order: 2; }
+  /* More text than a portrait image can visually balance — give the copy
+     more width and let it flow in two columns instead of one tall strip.
+     .band__media is first in the DOM, so the narrow fraction goes first. */
+  .band--text-heavy { grid-template-columns: 0.6fr 1.4fr; }
+}
+.band__copy p { margin-bottom: var(--space-3); }
+@media (min-width: 640px) {
+  .band__copy {
+    column-count: 2;
+    column-gap: var(--space-5);
+  }
+  .band__copy p { max-width: none; }
 }
 
 .band-full {
