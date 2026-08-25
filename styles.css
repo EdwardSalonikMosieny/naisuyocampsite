@@ -1,6 +1,6 @@
 /* ==========================================================================
    Naisuyo Campsite — shared stylesheet
-   Palette: dry acacia scrub, red-ochre earth, deep river green, warm off-white.
+   Palette: dry acacia scrub, red-ochre earth, dry manyatta grass, warm off-white.
    One accent (beadwork red) reserved for calls-to-action only.
    ========================================================================== */
 
@@ -10,8 +10,8 @@
   --color-earth-dark: #7c4028;
   --color-scrub: #cdbf94;       /* dry acacia scrub / tan */
   --color-scrub-light: #eee7d3;
-  --color-river: #2f4a3e;       /* deep river green */
-  --color-river-dark: #203327;
+  --color-grass: #4a3f1e;       /* dry manyatta grass — khaki-brown, not green */
+  --color-grass-dark: #332b14;
   --color-offwhite: #f8f4ea;    /* warm off-white surface */
   --color-charcoal: #2a2420;    /* near-black, warm */
   --color-accent: #c81e3a;      /* beadwork red — CTAs and small accents only */
@@ -76,7 +76,7 @@ summary:focus-visible {
   position: absolute;
   left: var(--space-3);
   top: -60px;
-  background: var(--color-river);
+  background: var(--color-grass);
   color: var(--color-white);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius);
@@ -143,7 +143,7 @@ main { display: block; }
   font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
-  color: var(--color-river);
+  color: var(--color-grass);
 }
 .site-logo span { color: var(--color-earth); }
 @media (min-width: 400px) {
@@ -157,7 +157,7 @@ main { display: block; }
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--color-river);
+  border: 1px solid var(--color-grass);
   border-radius: var(--radius);
   background: transparent;
   cursor: pointer;
@@ -169,7 +169,7 @@ main { display: block; }
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--color-river);
+  background: var(--color-grass);
   position: relative;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -211,7 +211,7 @@ main { display: block; }
   margin-left: auto;
   width: 40px;
   height: 40px;
-  border: 1px solid var(--color-river);
+  border: 1px solid var(--color-grass);
   border-radius: var(--radius);
   background: transparent;
   font-size: 1.2rem;
@@ -257,10 +257,10 @@ main { display: block; }
 .btn--accent:hover { background: var(--color-accent-dark); }
 .btn--outline {
   background: transparent;
-  border-color: var(--color-river);
-  color: var(--color-river);
+  border-color: var(--color-grass);
+  color: var(--color-grass);
 }
-.btn--outline:hover { background: var(--color-river); color: var(--color-white); }
+.btn--outline:hover { background: var(--color-grass); color: var(--color-white); }
 .btn--whatsapp {
   background: #25623f;
   color: var(--color-white);
@@ -268,7 +268,7 @@ main { display: block; }
 .btn--whatsapp:hover { background: #1d4d32; }
 .btn--block { display: block; width: 100%; }
 .btn--ghost-light { background: transparent; border-color: var(--color-white); color: var(--color-white); }
-.btn--ghost-light:hover { background: var(--color-white); color: var(--color-river); }
+.btn--ghost-light:hover { background: var(--color-white); color: var(--color-grass); }
 
 .header-cta {
   order: 2;
@@ -397,7 +397,7 @@ main { display: block; }
   border-bottom: 1px solid rgba(42,36,32,0.12);
 }
 .feature-list__item:last-child { border-bottom: none; }
-.feature-list__item h3 { color: var(--color-river); margin-bottom: var(--space-1); }
+.feature-list__item h3 { color: var(--color-grass); margin-bottom: var(--space-1); }
 .feature-list__item p { margin-bottom: 0; }
 
 /* ---- Rates table ---- */
@@ -414,7 +414,7 @@ main { display: block; }
   border-radius: var(--radius);
   padding: var(--space-3);
 }
-.rates-table__row > span:first-child { font-weight: 700; color: var(--color-river); }
+.rates-table__row > span:first-child { font-weight: 700; color: var(--color-grass); }
 .rates-table__row--head { display: none; }
 .rates-table__note { margin-top: var(--space-3); font-size: 0.9rem; color: var(--color-charcoal); opacity: 0.8; }
 @media (min-width: 640px) {
@@ -550,7 +550,7 @@ main { display: block; }
 
 /* ---- Footer ---- */
 .site-footer {
-  background: var(--color-river);
+  background: var(--color-grass);
   color: var(--color-scrub-light);
   padding: var(--space-6) 0 var(--space-5);
 }
@@ -617,7 +617,7 @@ main { display: block; }
 .pill {
   display: inline-block;
   background: var(--color-scrub-light);
-  color: var(--color-river);
+  color: var(--color-grass);
   padding: 0.3em 0.8em;
   border-radius: 999px;
   font-size: 0.85rem;
