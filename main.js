@@ -1,8 +1,7 @@
 /* Naisuyo Campsite — progressive-enhancement JS.
    Every feature here enhances markup that already works without it:
    mobile nav (plain links still reachable), lightbox (images still open
-   full-size via <a> href), enquiry builder (plain wa.me link already
-   present). If this file fails to load, nothing breaks. */
+   full-size via <a> href). If this file fails to load, nothing breaks. */
 (function () {
   "use strict";
 
@@ -156,52 +155,6 @@
         }
       }
     });
-  }
-
-  /* ---------------- WhatsApp enquiry builder ---------------- */
-  var enquiryForm = document.querySelector("#enquiry-form");
-  var waLink = document.querySelector("#send-whatsapp");
-  var waNumber = waLink ? waLink.getAttribute("data-wa-number") : null;
-
-  if (enquiryForm && waLink && waNumber) {
-    function buildMessage() {
-      var name = enquiryForm.querySelector("#enq-name").value.trim();
-      var arrival = enquiryForm.querySelector("#enq-arrival").value;
-      var nights = enquiryForm.querySelector("#enq-nights").value.trim();
-      var guests = enquiryForm.querySelector("#enq-guests").value.trim();
-      var notes = enquiryForm.querySelector("#enq-notes").value.trim();
-      var interests = Array.prototype.slice
-        .call(enquiryForm.querySelectorAll('input[name="interest"]:checked'))
-        .map(function (cb) { return cb.value; });
-
-      var lines = ["Hello Naisuyo, I'd like to enquire about a stay."];
-      if (name) lines.push("Name: " + name);
-
-      var stayBits = [];
-      if (arrival) {
-        var d = new Date(arrival + "T00:00:00");
-        if (!isNaN(d.getTime())) {
-          var formatted = d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
-          stayBits.push("Arriving " + formatted);
-        }
-      }
-      if (nights) stayBits.push("for " + nights + " night" + (nights === "1" ? "" : "s"));
-      if (guests) stayBits.push(guests + " guest" + (guests === "1" ? "" : "s"));
-      if (stayBits.length) lines.push(stayBits.join(", ") + ".");
-
-      if (interests.length) lines.push("Interested in: " + interests.join(", ") + ".");
-      if (notes) lines.push("Notes: " + notes);
-
-      return lines.join("\n");
-    }
-
-    function updateLink() {
-      var text = encodeURIComponent(buildMessage());
-      waLink.setAttribute("href", "https://wa.me/" + waNumber + "?text=" + text);
-    }
-
-    enquiryForm.addEventListener("input", updateLink);
-    updateLink();
   }
 
   /* ---------------- Gentle scroll-reveal ---------------- */

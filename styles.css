@@ -49,7 +49,7 @@ body {
   line-height: 1.65;
   text-rendering: optimizeLegibility;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; margin: 0 0 var(--space-3); font-weight: 600; }
 h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
@@ -496,52 +496,17 @@ main { display: block; }
 .lightbox__next { right: var(--space-3); top: 50%; transform: translateY(-50%); }
 .lightbox__close:hover, .lightbox__prev:hover, .lightbox__next:hover { background: rgba(255,255,255,0.25); }
 
-/* ---- Enquiry form ---- */
+/* ---- Book-now panel ---- */
 .enquiry {
   background: var(--color-white);
   border-radius: var(--radius);
   padding: var(--space-5);
   box-shadow: var(--shadow-soft);
 }
-.form-row { margin-bottom: var(--space-4); }
-.form-row label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: var(--space-1);
-}
-.form-row input[type="text"],
-.form-row input[type="date"],
-.form-row input[type="number"],
-.form-row textarea {
-  width: 100%;
-  padding: 0.65em 0.8em;
-  border: 1px solid var(--color-scrub);
-  border-radius: var(--radius);
-  font: inherit;
-  font-size: 1rem;
-  background: var(--color-offwhite);
-}
-.form-row textarea { min-height: 6rem; resize: vertical; }
 .form-hint {
   font-size: 0.85rem;
   color: #574f47;
   margin-top: var(--space-1);
-}
-.checkbox-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: var(--space-2);
-}
-.checkbox-group label {
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.checkbox-group input { width: 18px; height: 18px; }
-.two-col { display: grid; gap: var(--space-3); }
-@media (min-width: 600px) {
-  .two-col { grid-template-columns: 1fr 1fr; }
 }
 .enquiry-note {
   background: var(--color-scrub-light);

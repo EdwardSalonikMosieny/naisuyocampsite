@@ -6,13 +6,14 @@ Every item below is marked in the HTML with `<!-- TODO: confirm with owner -->` 
 
 - ~~WhatsApp number~~ — now `+254 743 409 175` everywhere (enquiry button, floating button, footer, `tel:`/`wa.me` links, JSON-LD `telephone`).
 - ~~Email address~~ — now `naisuyocampsite@gmail.com` everywhere.
-- ~~Rates~~ — published on `stay.html#rates` and referenced from `contact.html` and `experiences.html`: cyclists KSh 2,000/person/night, general tourists KSh 6,000/person/night, tent hire KSh 4,000/tent, guided game drives ~KSh 4,800 (~$30)/person/day. USD figures are approximate (converted at ~KSh 160/$1) and labelled as such on the page.
+- ~~Rates~~ — published on `stay.html#rates` and referenced from `contact.html` and `experiences.html`, **shown in USD as the primary currency** per your request: cyclists ~$12.50/person/night, general tourists ~$37.50/person/night, tent hire ~$25/tent, guided game drives ~$30/person/day. KSh is kept as a secondary reference in the Stay page table only (useful for guests paying by M-Pesa) — approximate, converted at ~KSh 160/$1, labelled as such.
 - ~~Meals~~ — breakfast and dinner available on request (`stay.html`).
 - ~~Toilets/facilities~~ — replaced the generic placeholder with your actual amenities list: bonfire access, night lighting, security, tables and chairs, basic restroom facilities.
+- ~~Enquiry form~~ — removed per your request. `contact.html` now has a single static "Book now on WhatsApp" button (a plain `wa.me` link with a starter message) instead of the multi-field form, since the site has no backend to submit a form to anyway. Works identically with or without JavaScript.
 
 ## Still open
 
-1. **"Basic bush stay" tier (~KSh 2,500/person).** You listed this as a separate line item labelled "alternative estimate" alongside the confirmed cyclist (KSh 2,000) and tourist (KSh 6,000) rates, but it's unclear what it actually is — a lower-cost option with fewer amenities? A rough estimate that's superseded by the two confirmed rates? It's currently published on `stay.html#rates` exactly as given, but flagged there with a TODO. Confirm what it covers, or remove it if it was just a draft estimate.
+1. **"Basic bush stay" tier (~$15.60/person, ~KSh 2,500).** You listed this as a separate line item labelled "alternative estimate" alongside the confirmed cyclist (~$12.50) and tourist (~$37.50) rates, but it's unclear what it actually is — a lower-cost option with fewer amenities? A rough estimate that's superseded by the two confirmed rates? It's currently published on `stay.html#rates` exactly as given, but flagged there with a TODO. Confirm what it covers, or remove it if it was just a draft estimate.
 2. **Nearest town.** Every footer still reads "Nearest town: to be confirmed."
 3. **Driving directions / GPS coordinates.** `contact.html` currently promises to send a location pin over WhatsApp once a stay is confirmed, rather than publishing exact coordinates on the page (this also avoids putting a precise public pin next to wildlife-adjacent land). The homepage JSON-LD has no `geo` field — add one once you're comfortable publishing coordinates.
 4. **Number of tents, bedding/mattress details**, and whether guests can ever sleep inside a manyatta structure rather than a tent.
