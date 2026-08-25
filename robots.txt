@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://naisuyocampsite.co.ke/sitemap.xml
+Sitemap: https://naisuyo.co.ke/sitemap.xml

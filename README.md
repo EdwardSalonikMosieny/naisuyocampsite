@@ -48,13 +48,13 @@ Anything you see wrapped like `<!-- TODO: confirm with owner — ... -->` is an 
 
 ## Updating the placeholder contact details
 
-Every page currently uses a **placeholder** WhatsApp number (`254700000000` / `+254 700 000 000`) and email (`info@naisuyocampsite.co.ke`). These must be replaced with the real ones before launch — see CONTENT-TODO.md item 1–2.
+Every page currently uses a **placeholder** WhatsApp number (`254700000000` / `+254 700 000 000`) and email (`info@naisuyo.co.ke`). These must be replaced with the real ones before launch — see CONTENT-TODO.md item 1–2.
 
 Because the same values are repeated verbatim everywhere, you can update them with a single find-and-replace across every file:
 
 - Find `254700000000` → replace with your real number (digits only, international format, no `+` or spaces) — this covers every `wa.me/...` link, every `tel:` link, and the `data-wa-number` attribute the enquiry builder reads.
 - Find `+254 700 000 000` → replace with the human-readable version of the same number, for the visible text next to those links.
-- Find `info@naisuyocampsite.co.ke` → replace with your real email if different.
+- Find `info@naisuyo.co.ke` → replace with your real email if different.
 
 Most code editors (VS Code, Sublime, Notepad++) have a "Find in Files" / "Replace in Files" feature across a whole folder — use that rather than editing seven files by hand.
 
