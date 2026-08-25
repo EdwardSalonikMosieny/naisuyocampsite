@@ -104,22 +104,14 @@ summary:focus-visible {
   padding: 0 var(--space-4);
 }
 main { display: block; }
+/* Keep in-page anchor targets clear of the sticky header on jump/scroll */
+[id] { scroll-margin-top: 6rem; }
 .section {
   padding: var(--space-6) 0;
 }
 .section--tight { padding: var(--space-5) 0; }
 .section-header { max-width: 46rem; margin-bottom: var(--space-5); }
 .section-header--right { margin-left: auto; text-align: right; }
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  color: var(--color-earth-dark);
-  margin-bottom: var(--space-2);
-}
 
 /* ---- Header ---- */
 .site-header {
@@ -348,7 +340,6 @@ main { display: block; }
   align-items: center;
 }
 .band__media img { border-radius: var(--radius); box-shadow: var(--shadow-soft); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
-.band__text .eyebrow { display: block; }
 @media (min-width: 900px) {
   .band { grid-template-columns: 1.1fr 0.9fr; }
   .band--reverse { grid-template-columns: 0.9fr 1.1fr; }
@@ -356,7 +347,7 @@ main { display: block; }
   /* More text than a portrait image can visually balance — give the copy
      more width and let it flow in two columns instead of one tall strip.
      .band__media is first in the DOM, so the narrow fraction goes first. */
-  .band--text-heavy { grid-template-columns: 0.8fr 1.2fr; }
+  .band--text-heavy { grid-template-columns: 0.95fr 1.05fr; gap: var(--space-4); }
 }
 .band__copy p { margin-bottom: var(--space-3); }
 @media (min-width: 640px) {
@@ -370,9 +361,9 @@ main { display: block; }
 /* ---- About collage: two overlapping photos + a stat-style badge ---- */
 .about-collage {
   position: relative;
-  max-width: 380px;
+  max-width: 480px;
   margin: 0 auto var(--space-6);
-  padding: 0 var(--space-3) var(--space-6) 0;
+  padding: 0 0 var(--space-6) 0;
 }
 .about-collage__main img {
   border-radius: 28px;
