@@ -43,7 +43,11 @@ You mentioned your domain is with **Hostpinnacle**. Hostpinnacle uses standard c
    |---|---|---|
    | CNAME | www | `EdwardSalonikMosieny.github.io.` |
 
-   (Note the trailing dot on the CNAME target — cPanel's zone editor is usually fine with or without it, but include it if the field complains.)
+   **The trailing dot on the CNAME target is required, not optional, on this Hostpinnacle cPanel instance.** We hit this directly: entering `EdwardSalonikMosieny.github.io` without the trailing dot caused cPanel to silently treat it as a relative hostname and append the zone's own domain to it, producing the broken value `EdwardSalonikMosieny.github.io.naisuyo.co.ke` — which resolves to nothing and is exactly what triggers GitHub's "Domain's DNS record could not be retrieved (InvalidDNSError)" for the www/alternate name. If you ever have to re-enter this record, always include the trailing dot and verify afterwards with:
+   ```bash
+   curl -s "https://cloudflare-dns.com/dns-query?name=www.naisuyo.co.ke&type=CNAME" -H "accept: application/dns-json"
+   ```
+   The `data` field must read exactly `EdwardSalonikMosieny.github.io.` — if anything is appended after `.github.io.`, the record is broken the same way.
 
 5. Remove or don't create any pre-existing "parked domain" A record or default cPanel placeholder page for this domain — it will conflict with the four A records above.
 
