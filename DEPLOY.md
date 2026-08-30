@@ -17,10 +17,10 @@ Future changes just need `git add`, `git commit`, `git push`.
 ## 2. Turn on GitHub Pages
 
 1. On GitHub, go to the repository → **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-3. Set **Branch** to `main` and folder to `/ (root)`. Save.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. The workflow at `.github/workflows/pages.yml` publishes the static site from `main`.
 4. GitHub will build and serve the site at `https://EdwardSalonikMosieny.github.io/naisuyocampsite/` within a minute or two — check this works before moving to the custom domain.
-5. Still on the Pages settings screen, under **Custom domain**, enter `naisuyo.co.ke` and save. This writes to the `CNAME` file in the repo (already present at the root of this project, containing exactly `naisuyo.co.ke` — don't delete it).
+5. Still on the Pages settings screen, under **Custom domain**, enter `www.naisuyo.co.ke` and save. This writes to the `CNAME` file in the repo (already present at the root of this project, containing exactly `www.naisuyo.co.ke` — don't delete it).
 
 ## 3. DNS records — Hostpinnacle (cPanel)
 
@@ -51,6 +51,8 @@ You mentioned your domain is with **Hostpinnacle**. Hostpinnacle uses standard c
 
 5. Remove or don't create any pre-existing "parked domain" A record or default cPanel placeholder page for this domain — it will conflict with the four A records above.
 
+Current public DNS check on 2026-08-29 showed the root `naisuyo.co.ke` pointing to `196.96.239.162`, `41.80.117.102`, and `102.0.5.208`, not GitHub Pages. That is why the naked domain refused or timed out. Replace those root records with the four GitHub Pages A records above if the naked domain must work.
+
 **If the root/apex won't accept four A records** (some simplified control panels only allow one, or block editing the root entry): make `www.naisuyo.co.ke` the canonical host instead. Set only the CNAME for `www` → `EdwardSalonikMosieny.github.io`, then in cPanel's redirect tool (or a `.htaccess` if you have one active outside GitHub Pages) forward the bare apex to `https://www.naisuyo.co.ke`. In that case also update the repository's `CNAME` file to contain `www.naisuyo.co.ke` instead of the apex, and swap the GitHub Pages custom domain setting to match.
 
 DNS propagation for Hostpinnacle is typically **12–24 hours** — don't panic if it's not instant.
@@ -68,9 +70,9 @@ dig naisuyo.co.ke +short
 dig www.naisuyo.co.ke +short
 ```
 
-The first should return the four `185.199.10x.153` IPs; the second should resolve to `EdwardSalonikMosieny.github.io`. If neither shows up after 24 hours, double-check the Zone Editor entries in cPanel for typos.
+The first should return the four `185.199.10x.153` IPs if the naked domain is configured for GitHub Pages; the second should resolve to `EdwardSalonikMosieny.github.io`. If neither shows up after 24 hours, double-check the Zone Editor entries in cPanel for typos.
 
-**The `CNAME` file gets wiped after a later deploy.** This happens if you ever push a change from a local checkout that doesn't have the `CNAME` file (e.g. you regenerated the repo, or an old branch overwrote main). GitHub Pages reads the custom domain from that file on every deploy, so if it's missing, your custom domain setting silently reverts to blank/GitHub's default. Fix: confirm `CNAME` exists at the repo root and contains exactly `naisuyo.co.ke`, commit it, and re-push. It's a plain text file with no extension — easy to lose if a build tool or `.gitignore` change ever excludes it, so if you ever add a `.gitignore`, make sure it doesn't match `CNAME`.
+**The `CNAME` file gets wiped after a later deploy.** This happens if you ever push a change from a local checkout that doesn't have the `CNAME` file (e.g. you regenerated the repo, or an old branch overwrote main). GitHub Pages reads the custom domain from that file on every deploy, so if it's missing, your custom domain setting silently reverts to blank/GitHub's default. Fix: confirm `CNAME` exists at the repo root and contains exactly `www.naisuyo.co.ke`, commit it, and re-push. It's a plain text file with no extension — easy to lose if a build tool or `.gitignore` change ever excludes it, so if you ever add a `.gitignore`, make sure it doesn't match `CNAME`.
 
 ## 6. Other required root files
 
